@@ -1,0 +1,32 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.main{
+    width: 800px;
+    height: 100dvh;
+    display: flex;
+    justify-content: center;
+    align-items: center;}
+
+.column{
+    flex-grow: 1;
+    width: 50%;
+}
+
+
+
+.right{
+    background-image: url(../img/triangulos.png);
+    background-size: 450px;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 600px;
+    margin-bottom: 50px;
+}
+
+.left{
+    padding-left: 20px;
+}
