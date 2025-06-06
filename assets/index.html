@@ -8,35 +8,42 @@
     <link rel="stylesheet" href="css/style.css">
     <title>projetos triângulos</title>
 </head>
- 
+
 <body>
 
     <!--inicio do formulario-->
     <div class="main">
-        <h1 class="titulo">Programa lados de um triângulo</h1>
+        <h1 class="titulo">Programa triângulo</h1>
         <section class="container">
             <form>
-                <div class="lado-a">
+                <div class="lados">
                     <label for="ladoA">Lado A</label>
-                    <input type="number" name="ladoA" id="ladoA" min="1" required>
+                    <input type="number" name="ladoA" class="ladoA" min="1" required placeholder="ex:123...">
                 </div>
 
-                <div class="lado-b"><label for="ladoB">Lado B</label>
-                    <input type="number" name="ladoB" id="ladoB" min="1" required>
+                <div class="lados">
+                    <label for="ladoB">Lado B</label>
+                    <input type="number" name="ladoB" class="ladoB" min="1" required placeholder="ex:123...">
                 </div>
 
-                <div class="lado-c"><label for="ladoC">Lado C</label>
-                    <input type="number" name="ladoC" id="ladoC" min="1" required>
+                <div class="lados">
+                    <label for="ladoC">Lado C</label>
+                    <input type="number" name="ladoC" class="ladoC" min="1" required placeholder="ex:123...">
                 </div>
 
-                <button type="submit" class="btn-button">Verificar</button>
+                <input type="submit" value="verificar" class="btn-button">
             </form>
 
+            <div class="respostas">
+                <h2></h2>
+                <h3></h3>
+            </div>
 
         </section>
         <!--fim do formulario-->
 
     </div>
+    <script src="js/main.js"></script>
 </body>
 
 </html>

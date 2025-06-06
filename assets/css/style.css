@@ -1,51 +1,88 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Play:wght@400;700&display=swap');
+
+
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
-.main {
+html, body{
+  font-family: "Play", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  overflow: hidden;
+}
+
+.main { /*container principal que leva todo o conteudo*/
   width: 100dvw;
   height: 100dvh;
+  min-height: 100vh;
   margin: 0 auto;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-image: url(../img/triangulos.png);
+  background-image: url(../img/stars-7088.gif);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
   background-color: #f0f0f0;
+  position: relative;
 }
 
-.titulo {
-  position: absolute;
-  top: 50px;
-  left: 50%;
-  transform: translateX(-50%);
+.titulo {/*referente ao titulo principal do programa*/
+  font-family: "Play", 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  position: static;
+  width: 100%;
+  text-align: center;
+  margin-bottom: 32px;
+  transform: none;
+  top: unset;
+  left: unset;
   color: white;
+  padding: 0 10px;
+  max-width: 100vw;
   font-size: 2.5rem;
-  text-wrap: nowrap;
+  word-break: break-word;
+  z-index: 9;
 }
 
-.container {
-  padding-left: 20px;
-  height: 600px;
+.container {/*container responsavel pela secao formulario*/
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  height: auto;
+  min-height: 350px;
+  min-width: 0;
+  flex-direction: column;
+  width: 95vw;
+  backdrop-filter: blur(5px);
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 12px;
+  box-sizing: border-box;
+}
+
+form{/*estilização do formulario*/
+  border: 1px solid gray;
+  height: 400px;
+  width: 800px;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  width: 400px;
-  backdrop-filter: blur(10px);
-  background-color: rgba(0, 0, 0, 0.5);
-  border-radius: 10px;
+  align-items: center;
+  margin-bottom: 20px;
 }
 
-input {
+input {/*input's do formulario*/
   margin-bottom: 20px;
   padding: 10px;
   border: none;
   border: 1px solid #ccc;
   font-size: 20px;
+  border-radius: 10px;
+  background-color: darkgray;
 }
 
 label {
@@ -56,11 +93,85 @@ label {
   font-weight: bold;
 }
 
-.btn-button {
-    padding: 10px;
+.btn-button {/*botao de envio do formulario*/
+    padding: 15px;
+    box-sizing: border-box;
     background-color: #4CAF50;
     border: none;
     font-weight: bold;
-    font-size: 15px;
-    width: 50%
+    font-size: 20px;
+    width: 33%;
+    border-radius: 10px;
+    margin-top: 8px;
+    font-family: "Play", 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    transition: 0.9s ease;
+}
+
+.respostas{/*seção que carrega os campos de respostas*/
+  text-align: center;
+  margin-top: 30px;
+  border: 1px solid gray;
+  padding: 30px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 17px;
+  width: 800px;
+}
+
+h3{
+  color: #f0f0f0;
+}
+h2{
+  color: white;
+}
+
+input[type="number"]:focus{
+  background-color: white;
+  font-weight: bold;
+}
+
+.btn-button:hover{
+  transform: scale(1.03) translateY(-5px);
+  border: 1px solid rgb(11, 229, 11);
+}
+
+/* Media query para telas menores que 600px (celulares) */
+@media (max-width: 600px) {
+  .titulo {
+    font-size: 1.5rem; /* Reduz o tamanho do título */
+    margin-bottom: 18px;
+    padding: 0 4px;
+  }
+  .container {
+    max-width: 98vw;
+    padding: 8px;
+    border-radius: 6px;
+  }
+  form {
+    min-height: 200px;
+    margin-bottom: 18px;
+  }
+  input, .btn-button {
+    font-size: 1rem;
+    padding: 8px;
+  }
+  .respostas {
+    padding: 10px 0;
+    font-size: 0.95rem;
+  }
+}
+
+/* Media query para telas muito pequenas (menos de 400px) */
+@media (max-width: 400px) {
+  .titulo {
+    font-size: 1.1rem;
+  }
+  .container {
+    padding: 2px;
+    border-radius: 3px;
+  }
+  input, .btn-button {
+    font-size: 0.95rem;
+    padding: 6px;
+  }
 }
