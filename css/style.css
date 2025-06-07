@@ -1,6 +1,4 @@
-
-@import url('https://fonts.googleapis.com/css2?family=Play:wght@400;700&display=swap');
-
+@import url("https://fonts.googleapis.com/css2?family=Play:wght@400;700&display=swap");
 
 * {
   box-sizing: border-box;
@@ -8,14 +6,16 @@
   padding: 0;
 }
 
-html, body{
+html,
+body {
   font-family: "Play", sans-serif;
   font-weight: 400;
   font-style: normal;
   overflow: hidden;
 }
 
-.main { /*container principal que leva todo o conteudo*/
+.main {
+  /*container principal que leva todo o conteudo*/
   width: 100dvw;
   height: 100dvh;
   min-height: 100vh;
@@ -32,8 +32,23 @@ html, body{
   position: relative;
 }
 
-.titulo {/*referente ao titulo principal do programa*/
-  font-family: "Play", 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+.textos {
+  max-width: 98vw;
+  width: 90vw;
+  border: 1px solid rgb(52, 48, 48);
+  padding: 10px;
+  margin-bottom: 20px;
+  backdrop-filter: blur(5px);
+  background-color: transparent;
+  box-sizing: border-box;
+  margin-top: 20px;
+  border-radius: 10px;
+}
+
+.titulo {
+  /*referente ao titulo principal do programa*/
+  font-family: "Play", "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
   position: static;
   width: 100%;
   text-align: center;
@@ -49,7 +64,17 @@ html, body{
   z-index: 9;
 }
 
-.container {/*container responsavel pela secao formulario*/
+.explicacao {/*paragrafo que explica o funcionamento do programa*/
+  text-align: center;
+  margin-bottom: 18px;
+  font-size: 1.05rem;
+  color: #cdc3c3;
+}
+
+.container {
+  /*container responsavel pela secao formulario*/
+  max-width: 98vw;
+  width: 95vw;
   padding: 20px;
   display: flex;
   align-items: center;
@@ -57,25 +82,28 @@ html, body{
   min-height: 350px;
   min-width: 0;
   flex-direction: column;
-  width: 95vw;
-  backdrop-filter: blur(5px);
   background-color: rgba(0, 0, 0, 0.5);
   border-radius: 12px;
   box-sizing: border-box;
 }
 
-form{/*estilização do formulario*/
-  border: 1px solid gray;
+form {
+  /*estilização do formulario*/
+  border: 1px solid rgb(52, 48, 48);
   height: 400px;
-  width: 800px;
+  width: 600px;
+  max-width: 98vw;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
+  border-radius: 5%;
+  backdrop-filter: blur(5px);
 }
 
-input {/*input's do formulario*/
+input {
+  /*input's do formulario*/
   margin-bottom: 20px;
   padding: 10px;
   border: none;
@@ -86,57 +114,78 @@ input {/*input's do formulario*/
 }
 
 label {
+  display: block;
   font-size: 20px;
   margin-bottom: 10px;
-  display: block;
   color: aliceblue;
   font-weight: bold;
 }
 
-.btn-button {/*botao de envio do formulario*/
-    padding: 15px;
-    box-sizing: border-box;
-    background-color: #4CAF50;
-    border: none;
-    font-weight: bold;
-    font-size: 20px;
-    width: 33%;
-    border-radius: 10px;
-    margin-top: 8px;
-    font-family: "Play", 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    transition: 0.9s ease;
+.btn-button {
+  /*botao de envio do formulario*/
+  padding: 12px;
+  box-sizing: border-box;
+  background-color: #4caf50;
+  border: none;
+  font-weight: bold;
+  font-size: 20px;
+  width: 44%;
+  border-radius: 10px;
+  margin-top: 8px;
+  font-family: "Play", "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  transition: 0.9s ease;
 }
 
-.respostas{/*seção que carrega os campos de respostas*/
+.respostas {
+  /*seção que carrega os campos de respostas*/
   text-align: center;
-  margin-top: 30px;
-  border: 1px solid gray;
-  padding: 30px 0;
+  max-height: 30vw;
+  border: 1px solid #2e2c2c;
+  padding: 50px ;
   display: flex;
   flex-direction: column;
+  align-items: center;
   gap: 17px;
-  width: 800px;
+  max-width: 600px;
+  width: 100%;
+  box-sizing: border-box;
+  border-radius: 10px;
+  backdrop-filter: blur(5px);
+  box-sizing: border-box;
 }
 
-h3{
-  color: #f0f0f0;
+img{
+  max-height: 130px;
+  box-sizing: border-box;
+  overflow: hidden;
+  margin: 0;
 }
+
 h2{
-  color: white;
+  color: rgb(246, 8, 8);
 }
 
-input[type="number"]:focus{
+h3 {
+  color: #e4e119;
+}
+
+input[type="number"]:focus {
   background-color: white;
   font-weight: bold;
 }
 
-.btn-button:hover{
+.btn-button:hover {
   transform: scale(1.03) translateY(-5px);
   border: 1px solid rgb(11, 229, 11);
 }
 
 /* Media query para telas menores que 600px (celulares) */
-@media (max-width: 600px) {
+@media screen and (max-width: 767px) {
+  .main{
+    display: flex;
+    flex-direction: column;
+  }
   .titulo {
     font-size: 1.5rem; /* Reduz o tamanho do título */
     margin-bottom: 18px;
@@ -148,16 +197,35 @@ input[type="number"]:focus{
     border-radius: 6px;
   }
   form {
-    min-height: 200px;
+    min-height: 100px;
+    padding-top: 20px;
+    height: auto;
     margin-bottom: 18px;
+    flex-wrap: wrap;
+    width: 90vw;
   }
-  input, .btn-button {
+
+  .lados{
+    display: flex;
+    gap: auto;
+  }
+
+  label{
+    margin-right: 8px;
+  }
+
+  input,
+  .btn-button {
     font-size: 1rem;
     padding: 8px;
   }
+
   .respostas {
-    padding: 10px 0;
-    font-size: 0.95rem;
+    padding-bottom: 150px;
+  }
+
+  .respostas img{
+    height: 60px;
   }
 }
 
@@ -170,7 +238,8 @@ input[type="number"]:focus{
     padding: 2px;
     border-radius: 3px;
   }
-  input, .btn-button {
+  input,
+  .btn-button {
     font-size: 0.95rem;
     padding: 6px;
   }

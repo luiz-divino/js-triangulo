@@ -13,28 +13,36 @@
 
     <!--inicio do formulario-->
     <div class="main">
-        <h1 class="titulo">Programa triângulo</h1>
+        <div class="textos">
+            <h1 class="titulo">Programa triângulo</h1>
+            <p class="explicacao">
+                Informe os valores dos três lados e clique em "verificar". O programa irá dizer se é possível formar um
+                triângulo com esses lados e, se for possível, mostrará o tipo de triângulo: equilátero, isósceles ou
+                escaleno.<br>
+                <strong style="color: white;">Regra: a soma de dois lados deve ser sempre maior que o terceiro lado.</strong>
+            </p>
+        </div>
         <section class="container">
             <form>
                 <div class="lados">
-                    <label for="ladoA">Lado A</label>
+                    <label for="ladoA">Lado A: </label>
                     <input type="number" name="ladoA" class="ladoA" min="1" required placeholder="ex:123...">
                 </div>
 
                 <div class="lados">
-                    <label for="ladoB">Lado B</label>
+                    <label for="ladoB">Lado B: </label>
                     <input type="number" name="ladoB" class="ladoB" min="1" required placeholder="ex:123...">
                 </div>
 
                 <div class="lados">
-                    <label for="ladoC">Lado C</label>
+                    <label for="ladoC">Lado C: </label>
                     <input type="number" name="ladoC" class="ladoC" min="1" required placeholder="ex:123...">
                 </div>
 
                 <input type="submit" value="verificar" class="btn-button">
             </form>
 
-            <div class="respostas">
+            <div id="resp">
                 <h2></h2>
                 <h3></h3>
             </div>
