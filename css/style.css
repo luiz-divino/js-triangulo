@@ -12,6 +12,7 @@ body {
   font-weight: 400;
   font-style: normal;
   overflow: hidden;
+  scroll-behavior: smooth;
 }
 
 .main {
@@ -43,6 +44,10 @@ body {
   box-sizing: border-box;
   margin-top: 20px;
   border-radius: 10px;
+}
+
+p{
+  color: #cdc3c3;
 }
 
 .titulo {
