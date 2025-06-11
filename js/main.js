@@ -30,7 +30,7 @@ form.addEventListener('submit', (e) => {  //funcao executada quando o formulario
 function condicao(valor1, valor2, valor3) { //funcao que verifica as condicoes, retornando um resultado caso a condicao seja válida
     if (valor1 === valor2 && valor2 === valor3) {
         resp1.innerHTML = '<img src="img/equilatero.png">'
-        resp2.innerText = 'TIPO: TRIÂNGULO EQUILÁTERO'
+        resp2.innerText = 'TIPO: TRIÂNGULO EQUILÁTERO';
     }
     if (valor1 === valor2 && valor2 != valor3) {
         resp1.innerHTML = '<img src="img/isosceles.png">'
