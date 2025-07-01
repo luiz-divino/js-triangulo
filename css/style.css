@@ -23,9 +23,10 @@
 html,
 body {
    font-family: 'Play', sans-serif;
-  font-weight: 400;
+  font-weight: 900;
   font-style: normal;
   scroll-behavior: smooth;
+
 }
 
 
@@ -35,12 +36,17 @@ body {
     background-color: black;
 }
 
+
 .card-img{
-    height: 200px;
+    height: 250px;
     object-fit: cover;
+    position: center;
     max-width: 18rem;
     margin: 0 auto;
     display: block;
     margin-top: 20px;
 }
 
+.text-success {
+  font-size: 20px;
+}
