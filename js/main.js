@@ -14,9 +14,9 @@ form.addEventListener('submit', function (e) {
     const ladoB = Number(document.getElementById('ladoB').value);
     const ladoC = Number(document.getElementById('ladoC').value);
 
-    let trianguloEquilatero = 'img/equilatero.png';
-    let trianguloIsosceles = 'img/isosceles.png';
-    let trianguloEscaleno = 'img/escaleno.png';
+    let trianguloEquilatero = 'img/equilatero1.jpg';
+    let trianguloIsosceles = 'img/isosceles1.jpg';
+    let trianguloEscaleno = 'img/escaleno1.jpg';
 
     // Esconde o card de informações e mostra o de resposta
     document.getElementById('card-info').classList.add('d-none');
@@ -27,15 +27,15 @@ form.addEventListener('submit', function (e) {
     if (validatriangulo(ladoA, ladoB, ladoC)) {
             if (ladoA === ladoB && ladoB === ladoC) {
                 document.getElementById('figura').src = trianguloEquilatero;
-                resultado = '<span class="text-success">Triângulo Equilátero: É um triângulo que possui os **três lados iguais** e **três ângulos internos de 60°** cada. É totalmente simétrico. </span>';
+                resultado = '<span class="text-success">Triângulo Equilátero: É um triângulo que possui os três lados iguais e três ângulos internos de 60° cada. É totalmente simétrico. </span>';
 
             } else if (ladoA === ladoB || ladoA === ladoC || ladoB === ladoC) {
                 document.getElementById('figura').src = trianguloIsosceles;
-                resultado = '<span class="text-warning">Triângulo Isósceles: possui dois lados iguais e dois ângulos iguais</span>';
+                resultado = '<span class="text-success">Triângulo Isósceles: possui dois lados iguais e dois ângulos iguais</span>';
 
             } else {
                 document.getElementById('figura').src = trianguloEscaleno;
-                resultado = '<span class="text-info">Triângulo Escaleno: todos os lados e ângulos diferentes.</span>';
+                resultado = '<span class="text-success">Triângulo Escaleno: todos os lados e ângulos diferentes.</span>';
             }
 
     } else {
