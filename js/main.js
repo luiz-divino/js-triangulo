@@ -1,56 +1,61 @@
+// Seleciona o formulário
+const form = document.querySelector('form');
 
-let form = document.querySelector('form');  //selecionando o formulario
-let resp1 = document.querySelector('h2');   //selecionando o h3 que posteriormente receberá um valor e irá exibir a resposta
-let resp2 = document.querySelector('h3');   //selecionando 0 h2 que posteriormente receberá um valor e irá exibir a resposta
+// Função para validar se é possível formar um triângulo
+function validatriangulo(a, b, c) {
+    return a + b > c && a + c > b && b + c > a;
+}
 
-form.addEventListener('submit', (e) => {  //funcao executada quando o formulario é enviado
+// Evento de submit do formulário
+form.addEventListener('submit', function (e) {
     e.preventDefault();
 
-    let ladoA = Number(form.ladoA.value);   //capitura valor do input LADO-A.
-    let ladoB = Number(form.ladoB.value);   //capitura valor do input LADO-B.
-    let ladoC = Number(form.ladoC.value);   //capitura valor do input LADO-C.
+    const ladoA = Number(document.getElementById('ladoA').value);
+    const ladoB = Number(document.getElementById('ladoB').value);
+    const ladoC = Number(document.getElementById('ladoC').value);
 
-    if (validatriangulo(ladoA, ladoB, ladoC)) { //chamando a funcao somlados() e jogando os valores dos lados para a funcao, a mesma verifica a soma dos lados para obter a resposta e retornar se é possivel ou não criar o triângulo.
-        condicao(ladoA, ladoB, ladoC)//chamando a funcao condica() e jogando os valores dos lados para a funcao pois não é possivel acessar diretamente as constantes do lado de fora do escopo que estão.
-        const respBox = document.querySelector('#resp');
-        respBox.classList.add('respostas', 'show-flip');
+    let trianguloEquilatero = 'img/equilatero.png';
+    let trianguloIsosceles = 'img/isosceles.png';
+    let trianguloEscaleno = 'img/escaleno.png';
 
-        // Remove o efeito após a animação para permitir novas animações
-        setTimeout(() => respBox.classList.remove('show-flip'), 800);
-    }
-    else {
-        resp1.innerHTML = 'ERRO: Não é possível formar um triângulo!';
-        resp2.innerText = 'Lembre-se: A soma de dois lados deve ser sempre maior que o terceiro lado.';
-    }
-}
-)
+    // Esconde o card de informações e mostra o de resposta
+    document.getElementById('card-info').classList.add('d-none');
+    document.getElementById('card-resposta').classList.remove('d-none');
 
+    let resultado = '';
 
+    if (validatriangulo(ladoA, ladoB, ladoC)) {
+            if (ladoA === ladoB && ladoB === ladoC) {
+                document.getElementById('figura').src = trianguloEquilatero;
+                resultado = '<span class="text-success">Triângulo Equilátero: É um triângulo que possui os **três lados iguais** e **três ângulos internos de 60°** cada. É totalmente simétrico. </span>';
 
-function condicao(valor1, valor2, valor3) { //funcao que verifica as condicoes, retornando um resultado caso a condicao seja válida
-    if (valor1 === valor2 && valor2 === valor3) {
-        resp1.innerHTML = '<img src="img/equilatero.png">'
-        resp2.innerText = 'TIPO: TRIÂNGULO EQUILÁTERO';
-    }
-    if (valor1 === valor2 && valor2 != valor3) {
-        resp1.innerHTML = '<img src="img/isosceles.png">'
-        resp2.innerText = 'TIPO: TRIÂNGULO ISÓSCELES'
-    }
-    if (valor2 === valor3 && valor3 != valor1) {
-        resp1.innerHTML = '<img src="img/isosceles.png">'
-        resp2.innerText = 'TIPO: TRIÂNGULO ISÓSCELES'
-    }
-    if (valor1 === valor3 && valor1 != valor2) {
-        resp1.innerHTML = '<img src="img/isosceles.png">'
-        resp2.innerText = 'TIPO: TRIÂNGULO ISÓSCELES'
-    }
-    if (valor1 != valor2 && valor2 != valor3 && valor3 != valor1) {
-        resp1.innerHTML = '<img src="img/escaleno.png">'
-        resp2.innerText = 'TIPO: TRIÂNGULO ESCALENO'
-    }
-}
+            } else if (ladoA === ladoB || ladoA === ladoC || ladoB === ladoC) {
+                document.getElementById('figura').src = trianguloIsosceles;
+                resultado = '<span class="text-warning">Triângulo Isósceles: possui dois lados iguais e dois ângulos iguais</span>';
 
+            } else {
+                document.getElementById('figura').src = trianguloEscaleno;
+                resultado = '<span class="text-info">Triângulo Escaleno: todos os lados e ângulos diferentes.</span>';
+            }
 
-function validatriangulo(a, b, c) {/*parte lógica do código*/
-    return a + b > c && a + c > b && b + c > a;
+    } else {
+        resultado = '<span class="text-danger">Não é possível formar um triângulo com esses valores.</span>';
+    }
+
+    // Exibe o resultado no card de resposta
+    let resultadoDiv = document.getElementById('resultado-triangulo');
+    if (!resultadoDiv) {
+        // Cria o elemento se não existir
+        resultadoDiv = document.createElement('div');
+        resultadoDiv.id = 'resultado-triangulo';
+        const cardBody = document.querySelector('#card-resposta .card-body');
+        cardBody.insertBefore(resultadoDiv, cardBody.querySelector('button'));
+    }
+    resultadoDiv.innerHTML = resultado;
+});
+
+// Função para voltar ao card de informações
+function voltarInfo() {
+    document.getElementById('card-info').classList.remove('d-none');
+    document.getElementById('card-resposta').classList.add('d-none');
 }
